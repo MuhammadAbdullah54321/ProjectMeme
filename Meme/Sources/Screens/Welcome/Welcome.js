@@ -8,7 +8,7 @@ class Welcome extends React.Component{
         return (
             <View style={styles.container}>
                 <LinearGradient 
-                    start={{x: 1, y: .5}} 
+                    start={{x: 1, y: .6}} 
                     end={{x: 1, y: 1}} 
                     colors={['#ff3d00', '#6200ea']} 
                     style={styles.linearGradient}
@@ -22,29 +22,50 @@ class Welcome extends React.Component{
                                 Welcome to Meme
                             </Text>
                             <Text style={styles.taglineText}>
-                                Fun It
+                                Fun It.
                             </Text>
                         </View>
                         <View style={styles.signupOptionsConatiner}>
                             <View>
                                 <TouchableOpacity style={styles.signupOptions}>
-                                    <Text style={styles.signupOptionsText}>
-                                        Sign Up using E-mail
-                                    </Text>
+                                    <View style={{flexDirection: 'row',}}>
+                                        <View>
+                                            <Image style={{height: 64, width: 64}} source={require('../../Images/mailSignupIcon.png')}/>
+                                        </View>
+                                        <View style={{justifyContent: "center"}}>
+                                            <Text style={styles.signupOptionsText}>
+                                                Sign Up using Email and Password
+                                            </Text>
+                                        </View>
+                                    </View>
                                 </TouchableOpacity>
                             </View>
                             <View>
                                 <TouchableOpacity style={styles.signupOptions}>
-                                    <Text style={styles.signupOptionsText}>
-                                        Sign Up with Google
-                                    </Text>
+                                    <View style={{flexDirection: 'row',}}>
+                                        <View>
+                                            <Image style={{height: 64, width: 64}} source={require('../../Images/googleSignupIcon.png')}/>
+                                        </View>
+                                        <View style={{justifyContent: "center"}}>
+                                            <Text style={styles.signupOptionsText}>
+                                                Sign Up with Google
+                                            </Text>
+                                        </View>
+                                    </View>
                                 </TouchableOpacity >
                             </View>
                             <View>
                                 <TouchableOpacity style={styles.signupOptions}>
-                                    <Text style={styles.signupOptionsText}>
-                                        Sign Up with Facebook
-                                    </Text>
+                                    <View style={{flexDirection: 'row',}}>
+                                        <View>
+                                            <Image style={{height: 64, width: 64}} source={require('../../Images/facebookSignupIcon.png')}/>
+                                        </View>
+                                        <View style={{justifyContent: "center"}}>
+                                            <Text style={styles.signupOptionsText}>
+                                                Sign Up with Facebook
+                                            </Text>
+                                        </View>
+                                    </View>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -52,10 +73,10 @@ class Welcome extends React.Component{
                             <View>
                                 <TouchableOpacity style={styles.skipOption}>
                                     <Text style={styles.skipText}>
-                                        Skip --->
+                                        Skip -->
                                     </Text>
                                 </TouchableOpacity>
-                            </View>
+                            </View>   
                         </View>
                     </View>
                 </LinearGradient>
@@ -82,16 +103,16 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     appIconContainer:{
-        borderWidth: 3,
-        borderColor: 'white',
-        margin: 3,
-        padding: 3
+        flex: 5,
+        width: '100%',
+        justifyContent: "center",
+        alignItems: "center"
     },
     welcomeAndTaglieContainer:{
-        borderWidth: 3,
-        borderColor: 'white',
-        margin: 3,
-        padding: 3
+        flex: 1,
+        width: '100%',
+        justifyContent: "center",
+        alignItems: "center"
     },
     welcomeText:{
         fontSize: 40,
@@ -102,46 +123,43 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
     signupOptionsConatiner:{
-        borderWidth: 3,
-        borderColor: 'white',
-        margin: 1,
-        padding: 3,
-        marginTop: 100
+        flex: 7,
+        width: '100%',
+        alignItems: "center",
+        justifyContent: "center"
     },
     signupOptions:{
         margin: 5,
-        padding: "5%",
+        padding: "2%",
         borderWidth: 1,
         borderColor: 'black',
         borderRadius: 15,
-        width: 500,
-        alignItems: "center",
-        justifyContent: "center"
+        width: 600,
     },
     signupOptionsText:{
-        fontSize: 30
+        fontSize: 30,
+        paddingLeft: 30
     },
     skipContainer:{
-        borderWidth: 3,
-        borderColor: 'white',
-        margin: 1,
-        padding: 3,
-        marginTop: 150,
+        flex: 2,
+        // borderWidth: 2,
+        // borderColor: 'yellow',
         width: '100%',
-        paddingLeft: '65%'
+        justifyContent: "center",
+        paddingRight: 20
     },
     skipOption:{
-        margin: 3,
-        padding: "5%",
-        borderWidth: 1,
-        borderColor: 'black',
+        alignSelf: 'flex-end',
+        padding: "2%",
+        borderWidth: 3,
+        borderColor: '#ff3d00',
         borderRadius: 15,
-        width: 200,
+        width: '35%',
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     skipText:{
-        fontSize: 30,
+        fontSize: 40,
         fontWeight: 'bold'
     }
 })
