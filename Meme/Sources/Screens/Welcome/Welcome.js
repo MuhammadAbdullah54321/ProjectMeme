@@ -1,11 +1,48 @@
 import React from 'react'
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
-
+import LogoScreen from '../logoScreen';
 import LinearGradient from 'react-native-linear-gradient';
 
+
 class Welcome extends React.Component{
+    
+        state={
+            isloading: true,
+        };
+
+        
+           isloaded=()=>{ setInterval(
+               ()=> this.load(),
+               3000
+               );
+           }
+       
+         load=() => {
+                 return this.setState({ isloading: false });
+            }
+
+        componentWillUnmount(){
+            clearInterval(this.isloaded())
+        }
+
+
     render(){
-        return (
+        
+        if(this.state.isloading){
+            return(
+            <View style={{flex:1}}> 
+            
+            <LogoScreen/>
+            {this.isloaded()}
+                
+                
+                </View>);
+         
+            
+        }
+
+        if(!this.state.isloading)
+        {return (
             <View style={styles.container}>
                 <LinearGradient 
                     start={{x: 1, y: .6}} 
@@ -16,13 +53,14 @@ class Welcome extends React.Component{
                     <View style={styles.mainContent}>
                         <View style={styles.appIconContainer}>
                             <Image source={require('../../Images/appIcon.png')} style={{width: 150, height: 150}} />
+                            <Text style={styles.taglineText}>
+                            LETS LAUGH TOGETHER.
+                            </Text>
                         </View>
                         <View style={styles.welcomeAndTaglieContainer}>
+                            
                             <Text style={styles.welcomeText}>
-                                Welcome to Meme
-                            </Text>
-                            <Text style={styles.taglineText}>
-                                Fun It.
+                                Welcome to meme
                             </Text>
                         </View>
                         <View style={styles.signupOptionsConatiner}>
@@ -85,7 +123,7 @@ class Welcome extends React.Component{
         )
     }
 }
-
+}
 const styles = StyleSheet.create({
     container:{
         flex: 1
@@ -106,7 +144,8 @@ const styles = StyleSheet.create({
         flex: 5,
         width: '100%',
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom:-30
     },
     welcomeAndTaglieContainer:{
         flex: 1,
@@ -115,12 +154,18 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     welcomeText:{
-        fontSize: 40,
+        fontSize: 20,
         fontFamily: 'Roboto',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color:'white',
+        marginTop: 0,
     },
     taglineText:{
-        fontSize: 30,
+        fontSize: 19,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        color:'white',
+        marginTop: 0,
     },
     signupOptionsConatiner:{
         flex: 7,
