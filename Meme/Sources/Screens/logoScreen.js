@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+
 
 export default class LogoScreen extends React.Component{
 
@@ -9,7 +9,7 @@ export default class LogoScreen extends React.Component{
         return(
             <View style={styles.mainContent}>
                 <View style={styles.appIconContainer}>
-                    <Image source={require('../Images/memeIcon.png')} style={{width: 250, height: 250}} />
+                    <Image source={require('../Images/memeIcon.png')} style={{width: 120, height: 120}} resizeMode = 'contain' />
                     <Text style={styles.taglineText}>
                         LETS LAUGH TOGETHER.
                     </Text>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
 
     },
     appIconContainer:{
-        
+       
         width: '100%',
         height:'80%',
         justifyContent: "center",
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         
         justifyContent: "center",
         alignItems: "center",
-        fontSize:20,
+        fontSize:10,
         color:"red"
 
     },
